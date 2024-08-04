@@ -33,7 +33,7 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
-@app.post("/signup/", response_model=schemas.User)
+@app.post("/Become_one/", response_model=schemas.User)
 def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_username(db, username=user.username)
     if db_user:
@@ -81,7 +81,7 @@ def create_creator(creator: schemas.CreatorCreate, db: Session = Depends(get_db)
         raise credentials_exception
     return crud.create_creator(db=db, creator=creator, user_id=user.id)
 
-@app.post("/pricings/", response_model=schemas.Pricing)
+@app.post("/creators/pricings/", response_model=schemas.Pricing)
 def create_pricing(pricing: schemas.PricingCreate, db: Session = Depends(get_db), token: str = Depends(auth.oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
