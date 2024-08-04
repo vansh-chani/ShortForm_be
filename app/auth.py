@@ -6,9 +6,8 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-# to get a string like this run:
-# openssl rand -hex 32
-SECRET_KEY = "your_secret_key_here"
+
+SECRET_KEY = "1dsfasvsfnk;asfasdfewqgvqf"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
